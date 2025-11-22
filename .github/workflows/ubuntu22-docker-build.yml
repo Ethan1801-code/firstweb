@@ -23,5 +23,6 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_HUB_USERNAME }}/firstweb:latest
             ${{ secrets.DOCKER_HUB_USERNAME }}/firstweb:${{ github.sha }}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/firstweb:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/firstweb:buildcache,mode=max
+          # 首次构建时注释以下 2 行（无缓存镜像，避免失败）
+          # cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/firstweb:buildcache
+          # cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/firstweb:buildcache,mode=max
